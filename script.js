@@ -1,23 +1,24 @@
-const taskContainer = document.querySelector('.task-container');
 const addTaskBtn = document.querySelector('.add-task-btn');
 const boards = document.querySelectorAll('.board');
+const todoContainer = document.querySelector('#todo-container')
 
 addTaskBtn.addEventListener('click', function() {
     let value = prompt('Your Task')
     const task = document.createElement('p')
     task.setAttribute('draggable', true)
-    task.classList.add('task');
+    task.classList.add('item');
     task.innerText = value;
 
-    taskContainer.appendChild(task)
+    todoContainer.appendChild(task)
+    console.log(task);
 
 })
 
 
 
 
-taskContainer.forEach(board => {
-    const allTask = document.querySelectorAll('.task')
+boards.forEach(board => {
+    const allTask = document.querySelectorAll('.item')
     
     board.addEventListener('dragover', () => {
         
