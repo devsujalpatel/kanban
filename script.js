@@ -1,36 +1,33 @@
+const boardContainer = document.querySelectorAll(".board");
 const addTaskBtn = document.querySelector('.add-task-btn');
-const boards = document.querySelectorAll('.board');
-const todoContainer = document.querySelector('#todo-container')
+const todoBoard = document.getElementById('todo-container')
 
-addTaskBtn.addEventListener('click', function() {
-    let value = prompt('Your Task')
+// add task fn
+function addTask(){
+    const value = prompt('Your Task');
     const task = document.createElement('p')
-    task.setAttribute('draggable', true)
-    task.classList.add('item');
-    task.innerText = value;
+    task.textContent = value;
+    task.classList.add('item')
+    task.setAttribute('draggable', 'true')
+    appendTask(task)
+}
 
-    todoContainer.appendChild(task)
-    console.log(task);
+// append task fn
+function appendTask(task) {
+    todoBoard.appendChild(task)
+}
+// event listner
+addTaskBtn.addEventListener('click', addTask)
 
-})
+// dragend 
+boardContainer.forEach((board)=>{
+    board.addEventListener('dragover', function(){
+        const taskItems = document.querySelectorAll(".item");
 
-
-
-
-boards.forEach(board => {
-    const allTask = document.querySelectorAll('.item')
-    
-    board.addEventListener('dragover', () => {
-        
-        // console.log(taskContainer);
-        allTask.forEach(task => {
-            // task.addEventListener('dragstart', () => {
-            //     console.log(task);
-            // })
-            task.addEventListener('dragend', () => {
-                board.appendChild(task)
+        taskItems.forEach((task)=>{
+            task.addEventListener("dragend", function(){
+                board.appendChild(task);
             })
         })
     })
 })
-
