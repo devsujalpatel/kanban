@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kanban Board</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
@@ -18,18 +22,6 @@
         <div id="todo" class="col3" ondrop="drop(event)">
           <p class="task" id="task1" draggable="true" ondragstart="drag(event)">
             Task 1
-          </p>
-          <p class="task" id="task2" draggable="true" ondragstart="drag(event)">
-            Task 2
-          </p>
-          <p class="task" id="task3" draggable="true" ondragstart="drag(event)">
-            Task 3
-          </p>
-          <p class="task" id="task4" draggable="true" ondragstart="drag(event)">
-            Task 4
-          </p>
-          <p class="task" id="task5" draggable="true" ondragstart="drag(event)">
-            Task 5
           </p>
         </div>
         <div
@@ -52,7 +44,15 @@
         ></div>
       </div>
     </div>
-
+    <div class="add-task-container">
+      <div class="input-container">
+        <div><label id="labelInput" for="taskInput">Your Task: </label><input type="text" id="taskInput" /></div>
+        <button class="task-btn-input" onclick="addTask()">Add Task</button>
+        <button class="task-btn-class" onclick="closeTaskBtn()">Close</button>
+      </div>
+    </div>
+    <button class="task-btn" onclick="addTaskBtnShow()">Add Task</button>
+    
     <script src="script.js"></script>
   </body>
 </html>
