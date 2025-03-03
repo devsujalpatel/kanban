@@ -3,23 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kanban</title>
+    <title>Kanban Board</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <div class="board" id="todo-container">
-        <h1>To do</h1>
-        <p draggable="true" class="item">Learn HTML</p>
+      <div class="header">
+        <h4 id="todo-header">TODO</h4>
+        <h4 id="in-progress-header">IN-PROGRESS</h4>
+        <h4 id="in-qa-header">IN-QA</h4>
+        <h4 id="done-header">DONE</h4>
       </div>
-      <div class="board">
-        <h1>In Progress</h1>
+      <div class="drag-drop-container" ondragover="allowDrop(event)">
+        <div id="todo" class="col3" ondrop="drop(event)">
+          <p class="task" id="task1" draggable="true" ondragstart="drag(event)">
+            Task 1
+          </p>
+          <p class="task" id="task2" draggable="true" ondragstart="drag(event)">
+            Task 2
+          </p>
+          <p class="task" id="task3" draggable="true" ondragstart="drag(event)">
+            Task 3
+          </p>
+          <p class="task" id="task4" draggable="true" ondragstart="drag(event)">
+            Task 4
+          </p>
+          <p class="task" id="task5" draggable="true" ondragstart="drag(event)">
+            Task 5
+          </p>
+        </div>
+        <div
+          id="in-progress"
+          class="col3"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          id="in-qa"
+          class="col3"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          id="done"
+          class="col3"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
       </div>
-      <div class="board">
-        <h1>Done</h1>
-      </div>
-      <button class="add-task-btn">Add Task</button>
-      <button class="add-board-btn">Add Board</button>
     </div>
 
     <script src="script.js"></script>
